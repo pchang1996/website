@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="welcomeAdmin.aspx.cs" Inherits="welcomeAdmin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Register" %>
 
 <!DOCTYPE html>
 
@@ -14,11 +14,6 @@
             width: 1095px;
             height: 404px;
             margin-top: 4px;
-        }
-        .auto-style2 {
-            position: relative;
-            left: 220px;
-            top: 5px;
         }
         .auto-style3 {
             position: relative;
@@ -64,7 +59,7 @@
                 </ul>
             </li>
             <li><a href="#" style="font-family: Arial, Helvetica, sans-serif;margin-left:auto;margin-right:auto;">Services</a></li>
-            <li><a href="Register.aspx" style="font-family: Arial, Helvetica, sans-serif;margin-left:auto;margin-right:auto;">Register</a></li>
+            <li><a href="#" style="font-family: Arial, Helvetica, sans-serif;margin-left:auto;margin-right:auto;">Register</a></li>
         </ul>
     </div>
     <div>
@@ -76,12 +71,41 @@
             <img class="auto-style1" src="Images/643905_4324769915429_546498306_n.jpg" />
         </div>
     </section>
-
-    
-    
-
         
-  
+    <div id="content">
+                    <h3>Please Enter student's Information</h3>
+                    <asp:Table ID="StudentInfo" runat="server">
+                            
+                            <asp:TableRow>
+                            <asp:TableCell>Student First Name</asp:TableCell>
+                            <asp:TableCell> <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox></asp:TableCell>
+                            </asp:TableRow>
+
+                            <asp:TableRow>
+                            <asp:TableCell>Student Last Name</asp:TableCell>
+                            <asp:TableCell> <asp:TextBox ID="TextBoxLastName" runat="server"></asp:TextBox></asp:TableCell>
+                            </asp:TableRow>
+
+                            <asp:TableRow>
+                            <asp:TableCell>E-mail</asp:TableCell>
+                            <asp:TableCell> <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox></asp:TableCell>
+                            <asp:TableCell><asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TextBoxEmail" ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator></asp:TableCell>
+                            </asp:TableRow>
+                       
+                    </asp:Table>
+
+                    <!-- Save Button-->
+                    <asp:Button ID="ButtonSave" runat="server" Text="Add new student" OnClick="ButtonSave_Click" />
+
+                    <!-- End Button-->
+
+                    <!-- Result Section -->
+                    <div id="result" runat="server">
+
+                    </div>
+                    <!-- End result Section -->
+                </div>
     </form>
 </body>
 </html>
+
